@@ -1,0 +1,77 @@
+<style>
+    button{
+        width: 120px;
+    }
+</style>
+<div class="container">
+    <h1>Administracion de Visitas</h1>
+ 
+    <br>
+    <div class="col-sm">
+        <table class="table table-sm">
+            <thead>
+                <td>Id</td>
+                <td>Identificacion</td>
+                <td>Nombres</td>
+                <td>Telefono</td>
+                <td>Direccion</td>
+                <td>Fecha</td>
+                <td>Modificar</td>
+                <td>Eliminar</td>
+            </thead>
+    
+            <tbody>
+                <tr *ngFor="let item of ListaUsuario">
+                    <td> {{ item.id }}</td>
+                    <td> {{ item.identificacion }}</td>
+                    <td> {{ item.nombres }}</td>
+                    <td> {{ item.telefono }}</td>
+                    <td> {{ item.direccion }}</td>
+                    <td> {{ item.created_at }}</td>
+                    <td><button type="button" class="btn btn-primary" (click)="cargarParaModificarUsuario(item.identificacion)">Modificar</button></td>
+                    <td><button type="button" class="btn btn-danger" (click)="eliminarUsuario(item.identificacion)" >Eliminar</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="button" class=" btn btn-success" (click)="EsNuevo=true" *ngIf="EsNuevo==false" >Nuevo</button>
+    <button type="button" class=" btn btn-danger" (click)="cancelarClick()" *ngIf="EsNuevo==true" >Cancelar</button>
+    <!-- <td><button (click)="EsNuevo = true" *ngIf="!EsNuevo" >Nuevo</button></td> -->
+    <hr>
+    <div *ngIf="EsNuevo" >
+
+        <div>
+            <div class="input-group mb-3" *ngIf="EsIdentificacionVisible">
+                <input [(ngModel)]="usuario.identificacion" type="number" class="form-control"
+                 placeholder="Identificacion" aria-label="Identificacion" 
+                 aria-describedby="basic-addon1" maxlength="10">
+            </div>
+
+            <div class="input-group mb-3">
+                <input [(ngModel)]="usuario.nombres" type="text" class="form-control"
+                 placeholder="Nombres" aria-label="Nombres" 
+                 aria-describedby="basic-addon1">
+            </div>
+
+            <div class="input-group mb-3">
+                <input [(ngModel)]="usuario.telefono" type="text" class="form-control"
+                 placeholder="Telefono" aria-label="telefono" 
+                 aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3">
+                <input [(ngModel)]="usuario.direccion" type="text" class="form-control"
+                 placeholder="Direccion" aria-label="direccion" 
+                 aria-describedby="basic-addon1">
+            </div> 
+
+            <button type="button" class="btn btn-primary" (click)="crearUsuario()" *ngIf="EsModificacion == false">Guardar</button>
+            <button type="button" class="btn btn-primary" (click)="modificarUsuario()" *ngIf="EsModificacion == true">Actualizar</button>
+
+        </div>
+
+    </div>
+
+
+
+</div>
