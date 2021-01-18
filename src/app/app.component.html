@@ -11,17 +11,42 @@
     <div class="container">
         <!-- <app-admin-usuarios></app-admin-usuarios> -->
 
-        <!-- <h1>Aplicacion Clinica</h1> -->
-            <!-- This nav gives you links to click, which tells the router which route to use (defined in the routes constant in  AppRoutingModule) -->
-            <nav>
-            <ul>
+        <h1 style="text-align: center;">Aplicacion Clinica</h1>
+
+        <!-- This nav gives you links to click, which tells the router which route to use (defined in the routes constant in  AppRoutingModule) -->
+        <div class="container">
+            <!-- Just an image -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                  <a class="navbar-brand" href="#">Navegacion</a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                      <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" routerLink="/login-visitantes" routerLinkActive="active">Login Visitantes</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" routerLink="/admin-usuarios" routerLinkActive="active">Admin</a>
+                      </li>
+                      <!-- <li class="nav-item">
+                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                      </li> -->
+                    </ul>
+                  </div>
+                </div>
+            </nav>
+        </div>
+        <!-- The routed views render in the <router-outlet>-->
+            <!-- <ul>
                 <li><a routerLink="/login-visitantes" routerLinkActive="active">Login Visitantes</a></li>
                 <li><a routerLink="/admin-usuarios" routerLinkActive="active">Admin</a></li>
-                <!-- <li><a routerLink="/ingresos-del-usuarios" routerLinkActive="active">Ingresos del usuario</a></li> -->
-            </ul>
-            </nav>
-            <!-- The routed views render in the <router-outlet>-->
-            <router-outlet></router-outlet>
+            </ul> -->
+        <router-outlet></router-outlet>
     </div>
     </body>
 </html>
