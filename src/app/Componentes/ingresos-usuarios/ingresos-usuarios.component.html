@@ -1,0 +1,22 @@
+<div class="container">
+    <h1>Tus ingresos</h1>
+    <div class="col-sm">
+        <table class="table table-sm">
+            <thead>
+                <td>Id Admision</td>
+                <td>id_servicio</td>
+                <td>Servicio</td>
+                <td>Fecha</td>
+            </thead>
+    
+            <tbody>
+                <tr *ngFor="let item of ListaIngresos">
+                    <td> {{ item.id_paciente_admision }}</td>
+                    <td> {{ item.id_servicio }}</td>
+                    <td> {{ item.nombre_servicio }}</td>
+                    <td> {{ item.created_at }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

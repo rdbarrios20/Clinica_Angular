@@ -26,14 +26,30 @@ export class UsuarioService {
     return data;
   }
 
+  loginUsuarios(_identificacion: any, _password: any){
+    const param = {
+      identificacion : _identificacion,
+      password : _password
+    };
+    const data = this.httpClient.post(this.UrlApi + 'login', param)
+        .pipe(
+          map( response => {
+            // debugger;
+            return response;
+        } )
+    );
+    return data;
+  }
+
+
   postUsuario (usuario : any){
     const params = {
       identificacion : usuario.identificacion,
       nombres : usuario.nombres,
       telefono : usuario.telefono,
       direccion : usuario.direccion,
-      id_paciente : 333,
-      id_servicio : 2
+      id_paciente_admision : usuario.id_paciente_admision,
+      id_servicio : usuario.id_servicio
     };
 
     const data = this.httpClient.post(this.UrlApi + 'nuevo-usuario', params)

@@ -1,0 +1,18 @@
+
+<div class="container">
+    <h1>Login Visitantes</h1>
+    <div class="input-group mb-3">
+        <input [(ngModel)]="loginUsuario.identificacion" type="number" class="form-control"
+         placeholder="Identificacion" aria-label="Identificacion" 
+         aria-describedby="basic-addon1" maxlength="10">
+    </div>
+    <div class="input-group mb-3">
+        <input [(ngModel)]="loginUsuario.password" type="number" class="form-control"
+         placeholder="password" aria-label="password" 
+         aria-describedby="basic-addon1" maxlength="10" type="password">
+    </div>
+    <div class="input-group mb-3">
+        <button type="button" class=" btn btn-success" (click)="loginVisitas()">Enviar</button>
+    </div>
+
+</div>

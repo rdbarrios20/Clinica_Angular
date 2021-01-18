@@ -1,3 +1,27 @@
 
 <!-- <app-servicio> </app-servicio> -->
-<app-usuario></app-usuario>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicacion Clinica</title>
+</head>
+<body>
+    <div class="container">
+        <!-- <app-admin-usuarios></app-admin-usuarios> -->
+
+        <!-- <h1>Aplicacion Clinica</h1> -->
+            <!-- This nav gives you links to click, which tells the router which route to use (defined in the routes constant in  AppRoutingModule) -->
+            <nav>
+            <ul>
+                <li><a routerLink="/login-visitantes" routerLinkActive="active">Login Visitantes</a></li>
+                <li><a routerLink="/admin-usuarios" routerLinkActive="active">Admin</a></li>
+                <!-- <li><a routerLink="/ingresos-del-usuarios" routerLinkActive="active">Ingresos del usuario</a></li> -->
+            </ul>
+            </nav>
+            <!-- The routed views render in the <router-outlet>-->
+            <router-outlet></router-outlet>
+    </div>
+    </body>
+</html>

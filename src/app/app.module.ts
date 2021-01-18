@@ -9,18 +9,24 @@ import { AppComponent } from './app.component';
 import { UsuarioComponent } from './Componentes/usuario/usuario.component';
 // import { ServicioComponent } from './Componentes/servicio/servicio.component';
 import { UsuarioService } from './Servicios/usuario.service';
+import { LoginUsuarioComponent } from './Componentes/login-usuario/login-usuario.component';
+import { IngresosUsuariosComponent } from './Componentes/ingresos-usuarios/ingresos-usuarios.component';
+// import { RouterModule, Routes } from '@angular/router';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     UsuarioComponent,
+    LoginUsuarioComponent,
+    IngresosUsuariosComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [
     UsuarioService

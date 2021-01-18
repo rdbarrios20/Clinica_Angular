@@ -30,17 +30,23 @@
                     <td> {{ item.created_at }}</td>
                     <td><button type="button" class="btn btn-primary" (click)="cargarParaModificarUsuario(item.identificacion)">Modificar</button></td>
                     <td><button type="button" class="btn btn-danger" (click)="eliminarUsuario(item.identificacion)" >Eliminar</button></td>
+                    <td><button type="button" class="btn btn-warning" (click)="redireccionarIngresos(item.identificacion)" >Ver Ingresos</button></td>
                 </tr>
             </tbody>
         </table>
     </div>
 
-    <button type="button" class=" btn btn-success" (click)="EsNuevo=true" *ngIf="EsNuevo==false" >Nuevo</button>
-    <button type="button" class=" btn btn-danger" (click)="cancelarClick()" *ngIf="EsNuevo==true" >Cancelar</button>
+    <button type="button" class=" btn btn-success" (click)="nuevoBtnClick()" *ngIf="EsFormularioVisible==false && EsModificacion==false" >Nuevo</button>
+    <button type="button" class=" btn btn-danger" (click)="cancelarBtnClick()" *ngIf="EsFormularioVisible==true" >Cancelar</button>
     <!-- <td><button (click)="EsNuevo = true" *ngIf="!EsNuevo" >Nuevo</button></td> -->
     <hr>
-    <div *ngIf="EsNuevo" >
 
+
+    <!-- Cuando se muestra el siguiente formulario?:  -->
+    <!-- cuando la varaiblae EsFormularioVisible sea igual a true -->
+    <div *ngIf="EsFormularioVisible==true"  id="NuevoOEdicionVisitante">
+        <h3 *ngIf="(EsNuevo==true)">Nuevo Visitante e Ingreso</h3>
+        <h3 *ngIf="(EsModificacion==true)">Modificacion de Vistante</h3>
         <div>
             <div class="input-group mb-3" *ngIf="EsIdentificacionVisible">
                 <input [(ngModel)]="usuario.identificacion" type="number" class="form-control"
@@ -64,6 +70,33 @@
                  placeholder="Direccion" aria-label="direccion" 
                  aria-describedby="basic-addon1">
             </div> 
+
+            <div class="input-group mb-3" *ngIf="EsIdentificacionVisible">
+                <input [(ngModel)]="usuario.id_paciente_admision" type="text" class="form-control"
+                 placeholder="Id paciente" aria-label="id paciente" 
+                 aria-describedby="basic-addon1">
+            </div> 
+            
+            <div class="input-group mb-3" *ngIf="EsIdentificacionVisible">
+                <select [(ngModel)]="usuario.id_servicio" class="form-control">
+                    <option value="">Seleccione un servicio ...</option>
+                    <option *ngFor="let item of ListaServiciosClinica"
+                        value="{{item.id_servicio}}">
+                        {{item.nombre}}
+                    </option>
+                </select>
+            </div> 
+
+            <!-- <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" style="width: 125px;">
+                  Servicios
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+            </div> -->
 
             <button type="button" class="btn btn-primary" (click)="crearUsuario()" *ngIf="EsModificacion == false">Guardar</button>
             <button type="button" class="btn btn-primary" (click)="modificarUsuario()" *ngIf="EsModificacion == true">Actualizar</button>
