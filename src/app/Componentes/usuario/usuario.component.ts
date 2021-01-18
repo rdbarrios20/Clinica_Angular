@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 export class UsuarioComponent implements OnInit {
 
   EsNuevo: boolean; 
+  EsFormularioIngresoVisible: boolean;
   EsFormularioVisible: boolean;
   EsModificacion: boolean;
   EsIdentificacionVisible: boolean;
@@ -27,6 +28,7 @@ export class UsuarioComponent implements OnInit {
   ) {
      this.usuario = new Usuario();  // 2. Assignancion o inicialization
      this.EsNuevo = false; 
+     this.EsFormularioIngresoVisible = false;
      this.EsFormularioVisible = false;
      this.EsModificacion = false;
      this.EsIdentificacionVisible = true;
@@ -87,6 +89,7 @@ export class UsuarioComponent implements OnInit {
 
   nuevoBtnClick(){
     this.EsFormularioVisible = true;
+    this.EsFormularioIngresoVisible==true
     this.EsModificacion = false;
     this.EsNuevo = true;
   }

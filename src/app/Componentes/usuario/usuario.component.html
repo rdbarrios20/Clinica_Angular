@@ -4,7 +4,7 @@
     }
 </style>
 <div class="container">
-    <h1>Administracion de Visitas</h1>
+    <h1>Administracion de ingresos</h1>
  
     <br>
     <div class="col-sm">
@@ -41,8 +41,6 @@
     <!-- <td><button (click)="EsNuevo = true" *ngIf="!EsNuevo" >Nuevo</button></td> -->
     <hr>
 
-
-    <!-- Cuando se muestra el siguiente formulario?:  -->
     <!-- cuando la varaiblae EsFormularioVisible sea igual a true -->
     <div *ngIf="EsFormularioVisible==true"  id="NuevoOEdicionVisitante">
         <h3 *ngIf="(EsNuevo==true)">Nuevo Visitante e Ingreso</h3>
@@ -71,13 +69,7 @@
                  aria-describedby="basic-addon1">
             </div> 
 
-            <div class="input-group mb-3" *ngIf="EsIdentificacionVisible">
-                <input [(ngModel)]="usuario.id_paciente_admision" type="text" class="form-control"
-                 placeholder="Id paciente" aria-label="id paciente" 
-                 aria-describedby="basic-addon1">
-            </div> 
-            
-            <div class="input-group mb-3" *ngIf="EsIdentificacionVisible">
+            <div class="input-group mb-3">
                 <select [(ngModel)]="usuario.id_servicio" class="form-control">
                     <option value="">Seleccione un servicio ...</option>
                     <option *ngFor="let item of ListaServiciosClinica"
@@ -87,17 +79,25 @@
                 </select>
             </div> 
 
-            <!-- <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" style="width: 125px;">
-                  Servicios
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-            </div> -->
-
+            <div>
+                <p>En caso de tener un paciente internado llene los siguientes campos</p>
+                <div class="input-group mb-3">
+                    <input [(ngModel)]="usuario.id_paciente_admision" type="text" class="form-control"
+                     placeholder="id admision del paciente" aria-label="id_paciente_admision" 
+                     aria-describedby="basic-addon1">
+                </div> 
+                <div class="input-group mb-3" >
+                    <input [(ngModel)]="usuario.identificacion_familiar" type="text" class="form-control"
+                     placeholder="identificacion del familiar" aria-label="identificacion_familiar" 
+                     aria-describedby="basic-addon1">
+                </div> 
+                <div class="input-group mb-3">
+                    <input [(ngModel)]="usuario.nombre_familiar" type="text" class="form-control"
+                     placeholder="nombre del familiar" aria-label="nombre_familiar" 
+                     aria-describedby="basic-addon1">
+                </div> 
+            </div>
+            
             <button type="button" class="btn btn-primary" (click)="crearUsuario()" *ngIf="EsModificacion == false">Guardar</button>
             <button type="button" class="btn btn-primary" (click)="modificarUsuario()" *ngIf="EsModificacion == true">Actualizar</button>
 

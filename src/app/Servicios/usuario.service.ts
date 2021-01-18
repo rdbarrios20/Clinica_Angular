@@ -49,6 +49,8 @@ export class UsuarioService {
       telefono : usuario.telefono,
       direccion : usuario.direccion,
       id_paciente_admision : usuario.id_paciente_admision,
+      identificacion_familiar : usuario.identificacion_familiar,
+      nombre_familiar : usuario.nombre_familiar,
       id_servicio : usuario.id_servicio
     };
 
@@ -69,6 +71,10 @@ export class UsuarioService {
       nombres : usuario.nombres,
       telefono : usuario.telefono,
       direccion : usuario.direccion,
+      id_servicio : usuario.id_servicio,
+      d_paciente_admision : usuario.d_paciente_admision,
+      identificacion_familiar : usuario.identificacion_familiar,
+      nombre_familiar : usuario.nombre_familiar
     };
 
     const data = this.httpClient.post(this.UrlApi + 'editar-usuario', params)
